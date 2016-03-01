@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>William Sisson Week 1 Part 3</title>
+
+    <style>
+        fieldset {
+            background-color: lightyellow;
+            border: 10px solid yellow;
+            margin-bottom: 10px;
+            width: 720px;
+        }
+        
+        label {
+            width: 180px;
+            display: inline-block;
+            text-align: right;
+            vertical-align: top;
+        }
+        
+        .radioLabel {
+            width: auto;
+        }
+        
+        .rangeLabel {
+            text-align: center;
+            width: 100px;
+        }
+        
+        textarea {
+            width: 360px;
+            height: 50px;
+        }
+        
+        .labelRed {
+            color: white;
+            background-color: darkred;
+        }
+        
+        .labelPurple {
+            color: white;
+            background-color: purple;
+        }
+        
+        label:hover {
+            font-size: 40px;
+        }
+        
+        input:hover {
+            font-size: 40px;
+        }
+        
+        select:hover {
+            font-size: 40px;
+        }
+        
+        textarea:hover {
+            font-size: 40px;
+        }
+        
+        range:hover {
+            font-size: 40px;
+        }
+    </style>
+
+    <!-- The javaScript is at the bottom where it should be!  Please look carefully BEFORE GRADING!!! -->
+
+</head>
+
+<body>
+    <h1>Please enter your details for our dating website!</h1>
+    <form method="get" action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Your face</legend>
+            <label for="file">Your image: </label>
+            <input type="file" id="file" name="file" required />
+            <br>
+            <label for="preview">Image Preview:
+                <img src="" id="preview" />
+        </fieldset>
+
+        <fieldset>
+            <legend>Your general details</legend>
+            <label for="yourName">Name: </label>
+            <input type="text" id="yourName" name="yourName" placeholder="Your full name" required />
+            <br>
+            <label>Gender: </label>
+            <input type="radio" id="genderMale" name="gender" value="male" required />
+            <label for="genderMale" class="radioLabel">Male</label>
+            <input type="radio" id="genderFemale" name="gender" value="female" required />
+            <label for="genderFemale" class="radioLabel">Female</label>
+            <br>
+            <label for="age">Age: </label>
+            <input type="number" id="age" name="age" required />
+            <br>
+            <label for="dateofbirth">Date of Birth: </label>
+            <input type="date" id="dateofbirth" name="dateofbirth" />
+            <br>
+            <label for="color">Favorite color: </label>
+            <input type="color" id="color" name="color" />
+            <br>
+            <label for="whichCountry">Which country? </label>
+            <select id="whichCountry" name="country">
+                <option value="noselection">No selection</option>
+                <option value="United States">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="Mexico">Mexico</option>
+                <option value="England">England</option>
+                <option value="France">France</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>Your indicators</legend>
+            <label for="height">Height: </label>
+            <label for="short" class="rangeLabel labelRed">Short</label>
+            <input type="range" min="0" max="100" id="height" name="height" />
+            <label for="tall" class="rangeLabel labelPurple">Tall</label>
+            <br>
+            <label for="salary">Salary: </label>
+            <label class="rangeLabel labelRed">Poor</label>
+            <input type="range" min="0" max="100" id="salary" name="salary">
+            <label class="rangeLabel labelPurple">Rich</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Your contact Information</legend>
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" required />
+            <br>
+            <br>
+            <label for="phone">Mobile: </label>
+            <input type="tel" id="phone" name="phone" />
+            <br>
+            <br>
+            <label for="address">Address: </label>
+            <textarea id="address" name="address" /></textarea>
+            <br>
+
+            <label>Method to contact you: </label>&nbsp;
+            <label for="contEmail" class="radioLabel">Email</label>
+            <input type="checkbox" id="contEmail" name="methodEmail" />
+            <label for="contApp" class="radioLabel">Whatsapp </label>&nbsp;
+            <input type="checkbox" id="contApp" name="methodApp" />
+            <label for="contChat" class="radioLabel">In-app Chat</label>&nbsp;
+            <input type="checkbox" id="contChat" name="methodChat" />
+            <br>
+        </fieldset>
+        <button type="submit" value="submit">Submit</button>
+    </form>
+
+    <!-- HERE IS THE JAVASCRIPT!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   -->
+    <script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+
+</body>
+
+</html>

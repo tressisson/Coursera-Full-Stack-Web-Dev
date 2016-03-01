@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>William Sisson Week 2 Color Picker</title>
+    <script>
+        // Global variables
+        var finished = false;
+        var target_index = Math.floor(Math.random() * 5) + 1;
+        var colors = ["red", "green", "blue", "yellow", "orange", "gray"];
+        var color = colors[target_index];
+        var guess_count = 0;
+        
+        // Main game function
+        function do_game() {
+          
+          // Sort colors in array alphabetically
+          colors.sort();
+          alert('To make it easier...the color is ' + color); 
+            // Runs until check_guess function returns True for finished variable.
+            while(!finished) {
+            var guess_input = prompt('I am thinking of these colors: \n\n' + colors + '\n\n What color am I thining of?');
+            if(guess_input == color) {
+                alert('Congratulations you have guessed correctly!')
+                finished = true;
+            }
+            
+              }
+                
+            }
+            
+    </script>
+</head>
+
+<body onload="do_game()">
+
+</body>
+
+</html>
