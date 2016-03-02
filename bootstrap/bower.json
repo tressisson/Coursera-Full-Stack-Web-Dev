@@ -1,0 +1,27 @@
+{
+  "name": "conFusion",
+  "description": "Website for an aesome restaurant",
+  "main": "index.html",
+  "authors": [
+    "William Sisson"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "conFusion",
+    "Fusion",
+    "Restaurant"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "^4.5.0"
+  }
+}
