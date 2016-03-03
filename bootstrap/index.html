@@ -59,7 +59,7 @@
                 <div>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a data-toggle="modal" data-target="#loginModal">
+                            <a id="loginLink" href="#">
                                 <span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
                     </ul>
@@ -212,8 +212,8 @@
                     <p style="padding:20px;"></p>
                     <p style="padding-top: 30px;"></p>
 
-                    <a data-toggle="modal" data-target="#reserveModal">
-                        <button id="btnReserverTable" class="btn btn-warning btn-block">Reserve Table</button>
+                    <a id="reserveLink" href="#">
+                        <button id="btnReserveTable" class="btn btn-warning btn-block">Reserve Table</button>
                     </a>
                 </div>
             </div>
@@ -396,17 +396,25 @@
         </div>
     </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js "></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js "></script>
     <script>
         $(document).ready(function(){
-            $("#mycarousel").carousel( { interval: 2000 } );
-                          $("#carousel-pause").click(function(){
-                $("#mycarousel").carousel('pause');
+            $("#mycarousel ").carousel( { interval: 2000 } );
+                          $("#carousel-pause ").click(function(){
+                $("#mycarousel ").carousel('pause');
             });
-                        $("#carousel-play").click(function(){
-                $("#mycarousel").carousel('cycle');
+                        $("#carousel-play ").click(function(){
+                $("#mycarousel ").carousel('cycle');
+            });
+            
+            $('#loginLink').on('click', function() {
+               $('#loginModal').modal('show');
+            });
+            
+            $('#reserveLink').on('click', function() {
+               $('#reserveModal').modal('show');
             });
         });
     </script>
