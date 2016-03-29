@@ -31,7 +31,7 @@
                         </span>
                 <span class="col-sm-7 padTop">
                           <label for="sortInput">Sort Comments: </label>
-                          <input type="text" placeholder="author, date, rating" ng-model="sortComments">
+                          <input type="text" name="orderText" id="orderText" placeholder="author, date, rating" ng-model="sortComments">
                         </span>
             </div>
             <div class="col-sm-12 row" ng-repeat="entry in dish.comments | orderBy: sortComments">
