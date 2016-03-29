@@ -6,7 +6,7 @@
       "image": "images/uthapizza.png",
       "category": "mains",
       "label": "Hot",
-      "price": "4.99",
+      "price": 4.99,
       "description": "A unique combination of Indian Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer.",
       "comments": [
         {
@@ -47,7 +47,7 @@
       "image": "images/zucchipakoda.png",
       "category": "appetizer",
       "label": "",
-      "price": "1.99",
+      "price": 1.99,
       "description": "Deep fried Zucchini coated with mildly spiced Chickpea flour batter accompanied with a sweet-tangy tamarind sauce",
       "comments": [
         {
@@ -79,6 +79,17 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "rating": 5,
+          "comment": "",
+          "author": "",
+          "date": "2016-03-27T21:28:46.937Z"
+        },
+        {
+          "author": "test new comment",
+          "rating": "4",
+          "comment": "whatever comment"
         }
       ]
     },
@@ -88,7 +99,7 @@
       "image": "images/vadonut.png",
       "category": "appetizer",
       "label": "New",
-      "price": "1.99",
+      "price": 1.99,
       "description": "A quintessential ConFusion experience, is it a vada or is it a donut?",
       "comments": [
         {
@@ -120,6 +131,23 @@
           "comment": "It's your birthday, we're gonna party!",
           "author": "25 Cent",
           "date": "2011-12-02T17:57:28.556094Z"
+        },
+        {
+          "author": "newcomments test",
+          "rating": "1",
+          "comment": "whatever"
+        },
+        {
+          "rating": "3",
+          "comment": "this should work?",
+          "author": "whatever",
+          "date": "2016-03-27T21:39:31.211Z"
+        },
+        {
+          "rating": "1",
+          "comment": "another try",
+          "author": "tres",
+          "date": "2016-03-27T21:39:54.876Z"
         }
       ]
     },
@@ -210,6 +238,18 @@
     }
   ],
   "feedback": [
-
+    {
+      "mychannel": "tel",
+      "firstName": "test",
+      "lastName": "test1",
+      "agree": true,
+      "email": "fdafd@fda.com",
+      "tel": {
+        "areaCode": "132",
+        "number": "12312"
+      },
+      "comments": "fdasfd",
+      "id": 1
+    }
   ]
 }
