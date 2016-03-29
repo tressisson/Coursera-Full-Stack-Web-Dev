@@ -114,7 +114,10 @@ angular.module('confusionApp')
     .controller('IndexController', ['$scope', 'menuFactory', 'corporateFactory', function($scope, menuFactory, corporateFactory) {
 
         $scope.showDish = false;
+        $scope.showPromo = false;
+        $scope.showLeader = false;
         $scope.message = "Loading ...";
+
         $scope.dish = menuFactory.getDishes().get({ id: 0 })
             .$promise.then(
             function(response) {
@@ -126,10 +129,66 @@ angular.module('confusionApp')
             }
             );
 
+        $scope.promotion = menuFactory.getPromotions().get({ id: 0 })
+            .$promise.then(
+            function(response) {
+                $scope.promotion = response;
+                $scope.showPromo = true;
+            },
+            function(response) {
+                $scope.msgPromotion = "Error: " + response.status + " " + response.statusText;
+            }
+            );
+
+        $scope.leader = corporateFactory.getLeaders().get({ id: 0 })
+            .$promise.then(
+            function(response) {
+                $scope.leader = response;
+                $scope.showLeader = true;
+            },
+            function(response) {
+                $scope.msgLeader = "Error: " + response.status + " " + response.statusText;
+            }
+            );
+
+
+
     }])
 
     .controller('AboutController', ['$scope', 'corporateFactory', function($scope, corporateFactory) {
-        $scope.leaders = corporateFactory.getLeaders();
+        $scope.showLeader = false;
+        $scope.message = "Loading ...";
+        corporateFactory.getLeaders().query(
+            function(response) {
+                $scope.leaders = response;
+                $scope.showLeader = true;
+            },
+            function(response) {
+                $scope.message = "Error: " + response.status + " " + response.statusText;
+            }
+        );
+
+    }])
+
+    .controller('FeedbackController', ['$scope', 'feedbackFactory', function($scope, feedbackFactory) {
+
+        $scope.feedback = { mychannel: "", firstName: "", lastName: "", agree: false, email: "" };
+
+        $scope.sendFeedback = function() {
+
+            if ($scope.feedback.agree && ($scope.feedback.mychannel === "")) {
+                $scope.invalidChannelSelection = true;
+                console.log('incorrect');
+            } else {
+                $scope.invalidChannelSelection = false;
+                console.log($scope.feedback);
+               
+                feedbackFactory.getFeedback().save($scope.feedback);
+
+                $scope.feedback = { mychannel: "", firstName: "", lastName: "", agree: false, email: "" };
+                $scope.feedbackForm.$setPristine();
+            }
+        };
 
     }])
 
