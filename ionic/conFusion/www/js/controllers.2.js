@@ -118,7 +118,7 @@ angular.module('conFusion.controllers', [])
             console.log("index is " + index);
             favoriteFactory.addToFavorites(index);
             $ionicListDelegate.closeOptionButtons();
-        };
+        }
 
     }])
 
@@ -154,7 +154,7 @@ angular.module('conFusion.controllers', [])
         };
     }])
 
-    .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', '$ionicPopover', '$ionicModal', 'favoriteFactory', function($scope, $stateParams, menuFactory, baseURL, $ionicPopover, $ionicModal, favoriteFactory) {
+    .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', 'baseURL', '$ionicPopover', 'favoriteFactory', function($scope, $stateParams, menuFactory, baseURL, $ionicPopover, favoriteFactory) {
 
         $scope.baseURL = baseURL;
         $scope.dish = {};
@@ -187,40 +187,6 @@ angular.module('conFusion.controllers', [])
             favoriteFactory.addToFavorites($scope.dish.id);
             $scope.popover.hide();
         };
-        
-        // Create the comment modal
-        $ionicModal.fromTemplateUrl('templates/dish-comment.html', {
-            scope: $scope
-        }).then(function(modal) {
-            $scope.commentModal = modal;
-        });
-        
-        // Open the comment modal
-        $scope.addCommentModal = function() {
-            $scope.commentModal.show();
-        };
-        
-        // Close comment modal
-        $scope.closeComment = function() {
-            $scope.commentModal.hide();
-        };
-        
-        // Comment Form Modal submit code
-        $scope.mycomment = {rating:5, comment:"", author:"", date:""};
-
-        $scope.submitCommentModal = function () {
-        
-            $scope.mycomment.date = new Date().toISOString();
-            console.log($scope.mycomment);
-
-            $scope.dish.comments.push($scope.mycomment);
-            menuFactory.getDishes().update({id:$scope.dish.id},$scope.dish);
-
-            $scope.mycomment = {rating:5, comment:"", author:"", date:""};
-    
-            $scope.closeComment();
-        
-        }
 
     }])
 
@@ -239,7 +205,7 @@ angular.module('conFusion.controllers', [])
             $scope.commentForm.$setPristine();
 
             $scope.mycomment = { rating: 5, comment: "", author: "", date: "" };
-        };
+        }
     }])
 
     // implement the IndexController and About Controller here
@@ -300,7 +266,7 @@ angular.module('conFusion.controllers', [])
     $scope.toggleDelete = function () {
         $scope.shouldShowDelete = !$scope.shouldShowDelete;
         console.log($scope.shouldShowDelete);
-    };
+    }
 
     $scope.deleteFavorite = function (index) {
 
@@ -320,7 +286,7 @@ angular.module('conFusion.controllers', [])
 
         $scope.shouldShowDelete = false;
 
-    };
+    }
     
 }])
     
@@ -329,13 +295,12 @@ angular.module('conFusion.controllers', [])
         var out = [];
         for (var i = 0; i < favorites.length; i++) {
             for (var j = 0; j < dishes.length; j++) {
-                if (dishes[j].id === favorites[i].id) {
+                if (dishes[j].id === favorites[i].id)
                     out.push(dishes[j]);
-                }
             }
         }
         return out;
 
-    }})
+    }});
 
     ;
