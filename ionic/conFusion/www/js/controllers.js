@@ -1,7 +1,5 @@
 angular.module('conFusion.controllers', [])
 
-angular.module('conFusion.controllers', [])
-
     .controller('AppCtrl', function($scope, $ionicModal, $timeout, $localStorage, $ionicPlatform, $cordovaCamera, $cordovaImagePicker) {
 
         // With the new view caching in Ionic, Controllers are only called
