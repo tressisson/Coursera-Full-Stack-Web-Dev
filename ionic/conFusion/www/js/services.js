@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('conFusion.services', ['ngResource'])
-    .constant("baseURL", "http://192.168.0.23:3000/")
+    .constant("baseURL", "http://10.3.1.164:3000/")
 
     .factory('menuFactory', ['$resource', 'baseURL', function($resource, baseURL) {
 
