@@ -74,15 +74,7 @@ angular.module('confusionApp')
                                 $scope.message = "Error: "+response.status + " " + response.statusText;
                             }
             );    
-           // feedbackFactory.getFeedback().query(
-           //     function(response) {
-           //         $scope.feedbacks = response;
-           //         $scope.showFeedback = true;
-           //     },
-           //     function(response) {
-           //         $scope.message = "Error: "+response.status + " " + response.statusText;
-           //     });
-            
+           
             $scope.sendFeedback = function() {
                 console.log($scope.feedback);
                 
@@ -155,18 +147,7 @@ angular.module('confusionApp')
                         }
                     );
             
-           // $scope.getPromotion = menuFactory.getPromotion(0);
-        
-            
-//            menuFactory.getPromotions().query(
-//                function(response) {
-//                    $scope.promotions = response;
-//                    $scope.showPromotion = true;
-//                },
-//                function(response) {
-//                    $scope.message = "Error: "+response.status + " " + response.statusText;
-//                });
-            
+          
             $scope.getPromotion = menuFactory.getPromotions().get({id:0})
                     .$promise.then(
                         function(response){
