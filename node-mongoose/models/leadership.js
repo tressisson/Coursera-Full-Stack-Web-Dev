@@ -1,42 +1,42 @@
-// grab the things we need
+// Module mongoose for Leaders: Assignment 2, Task 3
+
+// Grab the things we need
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-// create a schema
+
+// Create a schema for leaders
 var leaderSchema = new Schema({
-    name: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    image: {
-        type: String,
-        required: true,
-        unique: true
-    },
-    designation: {
-        type: String,
-        required: true,
-        unique: false
-    },
-    abbr: {
-        type: String,
-        required: true,
-        unique: false
-    },
-    description: {
-        type: String,
-        required: true
-    }
+	name: {
+		type: String,
+		required: true,
+		unique: true,
+	},
+	image: {
+		type: String,
+		required: true
+	},
+	designation: {
+		type: String,
+		required: true
+	},
+	abbr: {
+		type: String,
+		required: true
+	},
+	description: {
+		type: String,
+		required: true
+	}
 },
-    {
-        timestamps: true
-    });
+{
+	timestamps: true
+});
 
-
-// the schema is useless so far
+// The schema is useless so far
 // we need to create a model using it
-var Leaders = mongoose.model('Leader', leaderSchema);
+var Leadership = mongoose.model('Leader', leaderSchema);
 
-// make this available to our Node applications
-module.exports = Leaders;
+// Make this available to our Node applications
+module.exports = Leadership;
+
