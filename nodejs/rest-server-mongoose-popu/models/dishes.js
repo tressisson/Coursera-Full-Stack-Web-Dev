@@ -47,9 +47,12 @@ var dishSchema = new Schema({
         type: String,
         default: ""
     },
-    price: { type: Currency },
+    price: {
+        type: Currency
+    },
     comments: [commentSchema]
-}, {
+},
+    {
         timestamps: true
     });
 
