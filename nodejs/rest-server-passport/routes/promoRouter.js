@@ -4,18 +4,20 @@ var mongoose = require('mongoose');
 
 var Promotions = require('../models/promotions');
 
+var Verify = require('./verify');
+
 var router = express.Router();
 router.use(bodyParser.json());
 
 router.route('/')
-    .get(function (req, res, next) {
+    .get(Verify.verifyOrdinaryUser, function (req, res, next) {
         Promotions.find({}, function (err, promotion) {
             if (err) throw err;
             res.json(promotion);
         });
     })
 
-    .post(function (req, res, next) {
+    .post(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
         Promotions.create(req.body, function (err, promotion) {
             if (err) throw err;
             console.log('Promotion created!');
@@ -28,7 +30,7 @@ router.route('/')
         });
     })
 
-    .delete(function (req, res, next) {
+    .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
         Promotions.remove({}, function (err, resp) {
             if (err) throw err;
             res.json(resp);
@@ -36,14 +38,14 @@ router.route('/')
     });
 
 router.route('/:promotionId')
-    .get(function (req, res, next) {
+    .get(Verify.verifyOrdinaryUser, function (req, res, next) {
         Promotions.findById(req.params.promotionId, function (err, promotion) {
             if (err) throw err;
             res.json(promotion);
         });
     })
 
-    .put(function (req, res, next) {
+    .put(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
         Promotions.findByIdAndUpdate(req.params.promotionId, {
             $set: req.body
         }, {
@@ -54,7 +56,7 @@ router.route('/:promotionId')
             });
     })
 
-    .delete(function (req, res, next) {
+    .delete(Verify.verifyOrdinaryUser, Verify.verifyAdmin, function (req, res, next) {
         Promotions.findByIdAndRemove(req.params.promotionId, function (err, resp) {
             if (err) throw err;
             res.json(resp);
